@@ -58,12 +58,10 @@ class PeminjamanComponents extends Component
             'status_peminjaman' => $this->status_peminjaman,
             'keterangan' => $this->keterangan,
         ]);
-        if ($this->status_peminjaman == '0' || $this->status_peminjaman == '1') {
-            $getkendaraan = Kendaraan::find($this->kendaraan_id);
-            $getkendaraan->update([
-                'status_kendaraan' => '0'
-            ]);
-        }
+        $getkendaraan = Kendaraan::find($this->kendaraan_id);
+        $getkendaraan->update([
+            'status_kendaraan' => ($this->status_peminjaman == '0' || $this->status_peminjaman == '1') ? '0' : '1'
+        ]);
         session()->flash('success', 'Berhasil menambahkan data');
         $this->reset();
     }

@@ -19,6 +19,7 @@ Route::get('users',function(){
 Route::get('jenis-kendaraan',function(){
     return view('jenis-kendaraan.index');
 })->middleware('auth')->name('jenis-kendaraan');
+
 Route::get('kendaraan',function(){
     return view('kendaraan.index');
 })->middleware('auth')->name('kendaraan');

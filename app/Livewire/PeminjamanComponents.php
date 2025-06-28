@@ -81,7 +81,7 @@ class PeminjamanComponents extends Component
 
         $getkendaraan = Kendaraan::find($this->kendaraan_id);
         $getkendaraan->update([
-            'status_kendaraan' =>  ($this->status_peminjaman == '1' || $this->status_peminjaman == '3') ? '1' : '0'
+            'status_kendaraan' =>  ($this->status_peminjaman == '3') ? '1' : '0'
         ]);
         session()->flash('success', 'Berhasil melakukan update data');
         $this->reset();
